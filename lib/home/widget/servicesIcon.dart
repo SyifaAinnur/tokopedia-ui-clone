@@ -19,85 +19,70 @@ class ServiceIcon extends StatelessWidget {
         ],
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          TopupBTN("assets/category-icon/gopay.png", "Gopay & Coins", "12.250",
+              "  Active"),
           TopupBTN(
-            iconpath: "assets/category-icon/gopay.png",
-            text: "Gopay & Coins",
-            deskripsi: "12.500",
-            onpress: () {},
-          ),
-          TopupBTN(
-            iconpath: "assets/category-icon/gopay.png",
-            text: "Member Silver",
-            deskripsi: "15 Kupon Baru",
-            onpress: () {},
-          )
+              "assets/category-icon/member.png", "Member Silver", "15 Kupon Baru", "")
         ],
       ),
     );
   }
 }
 
-class TopupBTN extends StatelessWidget {
-  final void Function() onpress;
-  final String iconpath;
-  final String text;
-  final String deskripsi;
-
-  const TopupBTN({
-    required this.iconpath,
-    required this.text,
-    required this.deskripsi,
-    required this.onpress,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onpress,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 5, bottom: 5, left: 16, right: 16),
-        child: Container(
-          color: Colors.white,
-          height: 40,
-          
-          child: Row(
-            children: <Widget>[
-              Image.asset(
-                iconpath,
-                height: 26,
-              ),
-              SizedBox(width: 8),
-              Padding(
-                padding: const EdgeInsets.only(top: 2),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      text,
-                      textAlign: TextAlign.left,
+Widget TopupBTN(String iconpath, String text, String deskripsi, String label) {
+  return GestureDetector(
+    child: Padding(
+      padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 36),
+      child: Container(
+        color: Colors.white,
+        height: 40,
+        child: Row(
+          children: <Widget>[
+            Image.asset(
+              iconpath,
+              height: 26,
+            ),
+            SizedBox(width: 8),
+            Padding(
+              padding: const EdgeInsets.only(top: 2),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    text,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 12,
+                        color: blackColor),
+                  ),
+                  SizedBox(height: 4),
+                  RichText(
+                    text: TextSpan(
+                      text: deskripsi,
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
                           color: blackColor),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: label,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
+                              color: primaryColor),
+                        ),
+                      ],
                     ),
-                    SizedBox(height: 4),
-                    Text(
-                      deskripsi,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 12,
-                          color: blackColor),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
-    );
-  }
+    ),
+  );
 }
