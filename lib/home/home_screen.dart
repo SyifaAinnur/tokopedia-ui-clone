@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tokopedia_ui/home/widget/custom_topBar.dart';
+import 'package:tokopedia_ui/home/widget/menu_button.dart';
+import 'package:tokopedia_ui/home/widget/menutbottom.dart';
+import 'package:tokopedia_ui/home/widget/menutop.dart';
+import 'package:tokopedia_ui/home/widget/slideritem.dart';
 import 'package:tokopedia_ui/home/widget/servicesIcon.dart';
 import 'package:tokopedia_ui/models/location_services.dart';
 import 'package:tokopedia_ui/theme.dart';
@@ -20,8 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
+        resizeToAvoidBottomInset: false,
+        body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -30,85 +34,109 @@ class _HomeScreenState extends State<HomeScreen> {
                 Color(0xffE3E4E8),
                 Color(0xffADCE0),
               ])),
-          child: Stack(
-            children: [
-              ClipPath(
-                clipper: ClipPathClass(),
-                child: Container(
-                  height: 200,
-                  color: primaryColor,
-                ),
+          child: Stack(children: [
+            ClipPath(
+              clipper: ClipPathClass(),
+              child: Container(
+                height: 200,
+                color: primaryColor,
               ),
-              Container(
-                margin: EdgeInsets.only(top: 40),
-                child: CustomAppBar(),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 40),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 40),
+              child: CustomAppBar(),
+            ),
+            Container(
+              child: ListView(children: [
+                Container(
+                  margin: EdgeInsets.only(top: 40),
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 60,
+                        height: 20,
                       ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.location_on_outlined,
-                            size: 14,
-                            color: whiteColor,
-                          ),
-                          Text(
-                            "Dikirim ke",
-                            style: TextStyle(color: whiteColor, fontSize: 12),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.only(left: 5),
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            child: FutureBuilder(
-                              future: LocationServices().getCoordinate(),
-                              builder: (context, snapshot) {
-                                if (snapshot.hasData) {
-                                  return Expanded(
-                                      child: Text(
-                                    snapshot.data.toString(),
-                                    softWrap: true,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      height: 1,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal,
-                                      color: Colors.white,
-                                    ),
-                                  ));
-                                } else {
-                                  return Text(
-                                    "Loading...",
-                                    style: TextStyle(
-                                        height: 1.5,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.normal,
-                                        color: Colors.white),
-                                  );
-                                }
-                              },
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.location_on_outlined,
+                              size: 14,
+                              color: whiteColor,
                             ),
-                          )
-                        ],
+                            Text(
+                              "Dikirim ke",
+                              style: TextStyle(color: whiteColor, fontSize: 12),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(left: 5),
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              child: FutureBuilder(
+                                future: LocationServices().getCoordinate(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasData) {
+                                    return Expanded(
+                                        child: Text(
+                                      snapshot.data.toString(),
+                                      softWrap: true,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        height: 1,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.normal,
+                                        color: Colors.white,
+                                      ),
+                                    ));
+                                  } else {
+                                    return Text(
+                                      "Loading...",
+                                      style: TextStyle(
+                                          height: 1.5,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.normal,
+                                          color: Colors.white),
+                                    );
+                                  }
+                                },
+                              ),
+                            ),
+                            Icon(
+                              Icons.keyboard_arrow_down_rounded,
+                              size: 15,
+                              color: whiteColor,
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 5),
+                        child: ServiceIcon(),
+                      ),
+                      SizedBox(height: 5),
+                      Positioned(
+                        top: 10,
+                        child: Menutop(),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                        child: SliderItem(),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                        child: Menubottom(),
                       )
                     ],
                   ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 98),
-                child: ServiceIcon(),
-              )
-            ],
-          )),
-    );
+              ]),
+            ),
+          ]),
+        ));
   }
 }
 
