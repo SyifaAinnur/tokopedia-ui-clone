@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tokopedia_ui/home/widget/custom_topBar.dart';
+import 'package:tokopedia_ui/home/widget/servicesIcon.dart';
 import 'package:tokopedia_ui/models/location_services.dart';
 import 'package:tokopedia_ui/theme.dart';
 
@@ -100,6 +101,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 90),
+                child: ServiceIcon(),
               )
             ],
           )),
