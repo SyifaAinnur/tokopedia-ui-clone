@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tokopedia_ui/home/widget/custom_topBar.dart';
+import 'package:tokopedia_ui/home/widget/flash_sale.dart';
 import 'package:tokopedia_ui/home/widget/menu_button.dart';
 import 'package:tokopedia_ui/home/widget/menutbottom.dart';
+import 'package:tokopedia_ui/home/widget/buttonappbar.dart';
 import 'package:tokopedia_ui/home/widget/menutop.dart';
 import 'package:tokopedia_ui/home/widget/slideritem.dart';
 import 'package:tokopedia_ui/home/widget/servicesIcon.dart';
@@ -110,16 +112,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 5),
                         child: ServiceIcon(),
                       ),
                       SizedBox(height: 5),
                       Positioned(
-                        top: 10,
                         child: Menutop(),
-                      ),
-                      SizedBox(
-                        height: 5,
                       ),
                       Container(
                         child: SliderItem(),
@@ -129,14 +126,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Container(
                         child: Menubottom(),
-                      )
+                      ),
+                      Container(
+                        child: FlashSale(),
+                      ),
                     ],
                   ),
                 ),
               ]),
             ),
           ]),
-        ));
+        ),
+          bottomNavigationBar: MainBottomNavbar(),               
+        );
   }
 }
 
