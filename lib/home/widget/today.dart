@@ -5,7 +5,6 @@ import 'package:tokopedia_ui/home/widget/product_thumnail.dart';
 
 
 class Today extends StatelessWidget {
-  const Today({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

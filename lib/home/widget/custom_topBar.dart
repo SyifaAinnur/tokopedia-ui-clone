@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tokopedia_ui/theme.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {

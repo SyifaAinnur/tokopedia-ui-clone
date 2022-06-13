@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:tokopedia_ui/home/widget/product_thumnail.dart';
 
 class produkPilihan extends StatelessWidget {
-  const produkPilihan({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

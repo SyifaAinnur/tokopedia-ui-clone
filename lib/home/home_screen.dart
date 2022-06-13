@@ -30,9 +30,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   ScrollController _scrollController = ScrollController();
 
-  late CurvedAnimationController<Color> _animationBackground;
-  late CurvedAnimationController<Color> _animationInput;
-  late CurvedAnimationController<Color> _animationIcon;
+  CurvedAnimationController<Color> _animationBackground;
+  CurvedAnimationController<Color> _animationInput;
+  CurvedAnimationController<Color> _animationIcon;
 
   double get _systemBarHeight => MediaQuery.of(context).padding.top;
   double get _appBarHeight => kToolbarHeight + _systemBarHeight;

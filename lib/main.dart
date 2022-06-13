@@ -3,11 +3,10 @@ import 'package:tokopedia_ui/home/home_screen.dart';
 import 'package:tokopedia_ui/splash_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override

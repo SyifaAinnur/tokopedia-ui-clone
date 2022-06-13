@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class CountDownWidget extends StatefulWidget {
-  const CountDownWidget({Key? key}) : super(key: key);
+
 
   @override
   _CountDownWidgetState createState() => _CountDownWidgetState();
@@ -11,7 +11,7 @@ class CountDownWidget extends StatefulWidget {
 
 class _CountDownWidgetState extends State<CountDownWidget> {
   Duration endTimer = Duration(hours: 1);
-  Timer? timer;
+  Timer timer;
   @override
   void initState() {
     super.initState();

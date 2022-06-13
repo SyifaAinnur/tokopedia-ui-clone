@@ -7,7 +7,7 @@ class CardSection extends StatelessWidget {
   final String name;
   final String imageUrl;
 
-  CardSection({required this.name, required this.imageUrl,});
+  CardSection({this.name, this.imageUrl,});
 
   @override
   Widget build(BuildContext context) {

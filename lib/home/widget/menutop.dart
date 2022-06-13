@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tokopedia_ui/home/widget/menu_button.dart';
 
 class Menutop extends StatelessWidget {
-  const Menutop({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,6 @@ import 'package:tokopedia_ui/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SpecialPromo extends StatelessWidget {
-  const SpecialPromo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

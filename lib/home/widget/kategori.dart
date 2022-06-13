@@ -4,7 +4,7 @@ import 'package:tokopedia_ui/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Kategori extends StatelessWidget {
-  const Kategori({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class BackgroundImage extends StatelessWidget {
   final String imageUrl;
 
-  BackgroundImage(this.imageUrl, {int? width, int? height});
+  BackgroundImage(this.imageUrl, {int width, int height});
 
   @override
   Widget build(BuildContext context) {

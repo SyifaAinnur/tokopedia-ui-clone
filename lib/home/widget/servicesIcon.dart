@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tokopedia_ui/theme.dart';
 
 class ServiceIcon extends StatelessWidget {
-  const ServiceIcon({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

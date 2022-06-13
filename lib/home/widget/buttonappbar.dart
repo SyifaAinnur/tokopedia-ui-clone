@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tokopedia_ui/theme.dart';
 
 class Bottombar extends StatefulWidget {
-  const Bottombar({ Key? key }) : super(key: key);
+
 
   @override
   State<Bottombar> createState() => _BottombarState();
@@ -12,8 +12,8 @@ class Bottombar extends StatefulWidget {
 
 class _BottombarState extends State<Bottombar> {
 
-  late int bottomNavbarIndex;
-  late PageController pageController;
+  int bottomNavbarIndex;
+  PageController pageController;
 
   @override
   void initState() {

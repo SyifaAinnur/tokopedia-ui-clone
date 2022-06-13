@@ -5,7 +5,7 @@ import 'package:tokopedia_ui/home/widget/product_thumnail.dart';
 
 
 class FlashSale extends StatelessWidget {
-  const FlashSale({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
