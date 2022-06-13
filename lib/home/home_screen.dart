@@ -8,6 +8,7 @@ import 'package:tokopedia_ui/home/widget/menu_button.dart';
 import 'package:tokopedia_ui/home/widget/menutbottom.dart';
 import 'package:tokopedia_ui/home/widget/buttonappbar.dart';
 import 'package:tokopedia_ui/home/widget/menutop.dart';
+import 'package:tokopedia_ui/home/widget/produkpilihan.dart';
 import 'package:tokopedia_ui/home/widget/slideritem.dart';
 import 'package:tokopedia_ui/home/widget/servicesIcon.dart';
 import 'package:tokopedia_ui/home/widget/special_promo.dart';
@@ -267,7 +268,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       SizedBox(height: 10),
                       FlashSale(),
                       SizedBox(height: 10),
-                      dealsPage()
+                      dealsPage(),
+                      SizedBox(height: 10),
+                      produkPilihan()
                     ]),
                   )
                 ],
