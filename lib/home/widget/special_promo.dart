@@ -37,7 +37,7 @@ class SpecialPromo extends StatelessWidget {
               height: 10,
             ),
             Container(
-              height: 250,
+              height: 220,
               child: Column(
                 children: [
                   Row(

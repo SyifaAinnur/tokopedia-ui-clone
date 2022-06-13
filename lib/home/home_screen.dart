@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tokopedia_ui/home/widget/custom_topBar.dart';
+import 'package:tokopedia_ui/home/widget/deals.dart';
 import 'package:tokopedia_ui/home/widget/flash_sale.dart';
 import 'package:tokopedia_ui/home/widget/menu_button.dart';
 import 'package:tokopedia_ui/home/widget/menutbottom.dart';
@@ -263,6 +264,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       FlashSale(),
                       SizedBox(height: 10),
                       SpecialPromo(),
+                      SizedBox(height: 10),
+                      FlashSale(),
+                      SizedBox(height: 10),
+                      dealsPage()
                     ]),
                   )
                 ],
