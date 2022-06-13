@@ -9,6 +9,7 @@ import 'package:tokopedia_ui/home/widget/buttonappbar.dart';
 import 'package:tokopedia_ui/home/widget/menutop.dart';
 import 'package:tokopedia_ui/home/widget/slideritem.dart';
 import 'package:tokopedia_ui/home/widget/servicesIcon.dart';
+import 'package:tokopedia_ui/home/widget/special_promo.dart';
 import 'package:tokopedia_ui/models/location_services.dart';
 import 'package:tokopedia_ui/theme.dart';
 import 'package:curved_animation_controller/curved_animation_controller.dart';
@@ -259,7 +260,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       SizedBox(height: 10),
                       Menubottom(),
                       SizedBox(height: 10),
-                      FlashSale()
+                      FlashSale(),
+                      SizedBox(height: 10),
+                      SpecialPromo(),
                     ]),
                   )
                 ],
@@ -277,9 +280,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         children: [
           _content,
           _appbar,
+          Bottombar()
         ],
       ),
-      bottomNavigationBar: Bottombar(),
     );
   }
 }
