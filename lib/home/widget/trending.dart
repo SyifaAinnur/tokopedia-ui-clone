@@ -17,7 +17,7 @@ class trending extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "Kategori pilihan",
+                      "Lagi Trending nih",
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
