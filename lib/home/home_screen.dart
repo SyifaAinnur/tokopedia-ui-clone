@@ -18,6 +18,8 @@ import 'package:tokopedia_ui/home/widget/trending.dart';
 import 'package:tokopedia_ui/models/location_services.dart';
 import 'package:tokopedia_ui/theme.dart';
 import 'package:curved_animation_controller/curved_animation_controller.dart';
+import 'package:float_bubble/float_bubble.dart';
+
 import 'package:flutter/rendering.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -91,6 +93,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       double scrollOffsetInput = 150;
       double scrollOffsetIcon = 120;
 
+      if (_scrollController is ScrollStartNotification) {
+        isShow = false;
+      }
+      if (_scrollController is ScrollEndNotification) {
+        isShow = true;
+      }
+
       // delay animation to start animate only after scrolling
       // as far as startAnimationAfterOffset value
       // this is for a smoother effect
@@ -116,6 +125,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       _animationIcon.progress = progressIcon;
     });
   }
+
+  bool isShow = true;
+
   // void initState() {
   //   super.initState();
   //   LocationServices().getCoordinate();
@@ -156,7 +168,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ),
               ),
             ),
-           
             IconButton(
               icon: Icon(Icons.mail, color: _animationIcon.value),
               onPressed: () {},
@@ -166,131 +177,142 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               onPressed: () {},
             ),
             IconButton(
-              icon:
-                  Icon(Icons.shopping_cart, color: _animationIcon.value),
+              icon: Icon(Icons.shopping_cart, color: _animationIcon.value),
               onPressed: () {},
             ),
             IconButton(
-              icon:
-                  Icon(Icons.menu, color: _animationIcon.value),
+              icon: Icon(Icons.menu, color: _animationIcon.value),
               onPressed: () {},
             ),
           ],
         ),
       );
 
-  Widget get _content => SingleChildScrollView(
-        controller: _scrollController,
-        child: Column(
-          children: [
-            Container(
-              height: 3000,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                    Color(0xffE3E4E8),
-                    Color(0xffADCE0),
-                  ])),
-              child: Stack(
-                children: [
-                  ClipPath(
-                    clipper: ClipPathClass(),
-                    child: Container(
-                      height: 200,
-                      color: primaryColor,
+  Widget get _content => NotificationListener(
+        child: SingleChildScrollView(
+          controller: _scrollController,
+          child: Column(
+            children: [
+              Container(
+                height: 3000,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                      Color(0xffE3E4E8),
+                      Color(0xffADCE0),
+                    ])),
+                child: Stack(
+                  children: [
+                    ClipPath(
+                      clipper: ClipPathClass(),
+                      child: Container(
+                        height: 200,
+                        color: primaryColor,
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 90),
-                    child: Column(children: [
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.location_on_outlined,
-                              size: 14,
-                              color: whiteColor,
-                            ),
-                            Text(
-                              "Dikirim ke",
-                              style: TextStyle(color: whiteColor, fontSize: 12),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(left: 5),
-                              width: MediaQuery.of(context).size.width * 0.7,
-                              child: FutureBuilder(
-                                future: LocationServices().getCoordinate(),
-                                builder: (context, snapshot) {
-                                  if (snapshot.hasData) {
-                                    return Expanded(
-                                        child: Text(
-                                      snapshot.data.toString(),
-                                      softWrap: true,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        height: 1,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.normal,
-                                        color: Colors.white,
-                                      ),
-                                    ));
-                                  } else {
-                                    return Text(
-                                      "Loading...",
-                                      style: TextStyle(
-                                          height: 1.5,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal,
-                                          color: Colors.white),
-                                    );
-                                  }
-                                },
-                              ),
-                            ),
-                            Icon(
-                              Icons.keyboard_arrow_down_rounded,
-                              size: 15,
-                              color: whiteColor,
-                            )
-                          ],
+                    Container(
+                      margin: EdgeInsets.only(top: 90),
+                      child: Column(children: [
+                        SizedBox(
+                          height: 20,
                         ),
-                      ),
-                      
-                      ServiceIcon(),
-                      SizedBox(height: 10),
-                      Menutop(),
-                      SliderItem(),
-                      SizedBox(height: 10),
-                      Menubottom(),
-                      SizedBox(height: 10),
-                      FlashSale(),
-                      SizedBox(height: 10),
-                      SpecialPromo(),
-                      SizedBox(height: 10),
-                      Today(),
-                      SizedBox(height: 10),
-                      dealsPage(),
-                      SizedBox(height: 10),
-                      produkPilihan(),
-                      SizedBox(height: 10),
-                      Kategori(),
-                      SizedBox(height: 10),
-                      trending()
-                    ]),
-                  )
-                ],
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.location_on_outlined,
+                                size: 14,
+                                color: whiteColor,
+                              ),
+                              Text(
+                                "Dikirim ke",
+                                style:
+                                    TextStyle(color: whiteColor, fontSize: 12),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.only(left: 5),
+                                width: MediaQuery.of(context).size.width * 0.7,
+                                child: FutureBuilder(
+                                  future: LocationServices().getCoordinate(),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.hasData) {
+                                      return Expanded(
+                                          child: Text(
+                                        snapshot.data.toString(),
+                                        softWrap: true,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          height: 1,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.normal,
+                                          color: Colors.white,
+                                        ),
+                                      ));
+                                    } else {
+                                      return Text(
+                                        "Loading...",
+                                        style: TextStyle(
+                                            height: 1.5,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.normal,
+                                            color: Colors.white),
+                                      );
+                                    }
+                                  },
+                                ),
+                              ),
+                              Icon(
+                                Icons.keyboard_arrow_down_rounded,
+                                size: 15,
+                                color: whiteColor,
+                              )
+                            ],
+                          ),
+                        ),
+                        ServiceIcon(),
+                        SizedBox(height: 10),
+                        Menutop(),
+                        SliderItem(),
+                        SizedBox(height: 10),
+                        Menubottom(),
+                        SizedBox(height: 10),
+                        FlashSale(),
+                        SizedBox(height: 10),
+                        SpecialPromo(),
+                        SizedBox(height: 10),
+                        Today(),
+                        SizedBox(height: 10),
+                        dealsPage(),
+                        SizedBox(height: 10),
+                        produkPilihan(),
+                        SizedBox(height: 10),
+                        Kategori(),
+                        SizedBox(height: 10),
+                        trending()
+                      ]),
+                    )
+                  ],
+                ),
               ),
-            ),
-            // Container(height: 1, color: Color(0xFF000046)),
-          ],
+              // Container(height: 1, color: Color(0xFF000046)),
+            ],
+          ),
         ),
+        onNotification: (notificationInfo) {
+          setState(() {
+            if (notificationInfo is ScrollStartNotification) {
+              isShow = false;
+            }
+            if (notificationInfo is ScrollEndNotification) {
+              isShow = true;
+            }
+          });
+          return true;
+        },
       );
 
   @override
@@ -300,7 +322,30 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         children: [
           _content,
           _appbar,
-          Bottombar()
+          Bottombar(),
+          FloatBubble(
+              show: isShow,
+              child: Container(
+                height: 120,
+                width: 120,
+                child: Stack(
+                  children: [
+                    Container(
+                        width: 120,
+                        height: 120,
+                        child: Align(
+                            alignment: Alignment.topRight,
+                            child: InkWell(
+                                onTap: () {},
+                                child: Icon(
+                                  Icons.cancel,
+                                  color: Colors.grey,
+                                )))),
+                    Image.network(
+                        'https://images.tokopedia.net/img/blog/promo/2021/04/FLOATING-ICON-TOKOPOINTS-150x150-50KB.gif?ect=4g'),
+                  ],
+                ),
+              )),
         ],
       ),
     );
