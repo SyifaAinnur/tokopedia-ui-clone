@@ -1,81 +1,101 @@
 import 'package:flutter/material.dart';
+import 'package:tokopedia_ui/home/card_section.dart';
+import 'package:tokopedia_ui/theme.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class Kategori extends StatefulWidget {
+class Kategori extends StatelessWidget {
   const Kategori({Key? key}) : super(key: key);
 
   @override
-  State<Kategori> createState() => _KategoriState();
-}
-
-class _KategoriState extends State<Kategori> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridView.count(
-        //widget yang akan ditampilkan dalam 1 baris adalah 2
-        crossAxisCount: 2,
+    return Container(
+      child: Column(
         children: [
-          //card ditampilkan disini
-          //saya membuat custom card di bawah agar kodingan tidak terlalu panjang
-          CustomCard(
-              title: "Judul Card Kedua",
-              image:
-                  "https://cdn.pixabay.com/photo/2018/02/01/14/09/yellow-3123271_960_720.jpg"),
-          CustomCard(
-              title: "Judul Card Ketiga",
-              image:
-                  "https://cdn.pixabay.com/photo/2016/08/27/14/38/mountains-1624284__340.jpg"),
-          CustomCard(
-              title: "Judul Card Keempat",
-              image:
-                  "https://cdn.pixabay.com/photo/2016/11/29/02/23/cliffs-1866832__340.jpg"),
-          CustomCard(
-              title: "Judul Card Kelima",
-              image:
-                  "https://cdn.pixabay.com/photo/2016/09/18/23/23/sugarloaf-mountain-1679285__340.jpg"),
+          //Title
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Row(
+                  children: [
+                    Text(
+                      "Kategori pilihan",
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    ),
+                    Spacer(),
+                    Text(
+                      "Lihat semua",
+                      style: TextStyle(
+                          color: Colors.green, fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+
+          Container(
+            child: Column(
+              children: [
+                Row(
+                  children: [cardPage(context), ],
+                  
+                ),
+                Row(
+                  children: [cardPages(context), ],
+                )
+              ],
+            ),
+          ),
+          //Items
         ],
       ),
     );
   }
 }
 
-class CustomCard extends StatelessWidget {
-    
-      //ini adalah konstruktor, saat class dipanggil parameter konstruktor wajib diisi
-      //parameter ini akan mengisi title dan gambar pada setiap card
-      CustomCard({required this.title, required this.image});
-    
-      String title;
-      String image;
-    
-      @override
-      Widget build(BuildContext context) {
-        return Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Card(
-            //menambahkan bayangan
-            elevation: 5,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  height: 100,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        image,
-                      ),
-                      fit: BoxFit.cover
-                    )
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Text(title),
-                )
-              ],
-            ),
-          ),
-        );
-      }
-    }
+Widget cardPage(BuildContext context) {
+  return Container(
+    width: MediaQuery.of(context).size.width,
+    child: Row(
+      children: [
+        CardSection(
+          name: 'makanan',
+          imageUrl: "assets/product/kategori1.jpg",
+        ),
+        CardSection(
+          name: 'Elektronik',
+          imageUrl: "assets/product/kategori2.jpg",
+        ),
+        CardSection(
+          name: 'Dapur',
+          imageUrl: "assets/product/kategori3.jpg",
+        ),
+      ],
+    ),
+  );
+}
+
+Widget cardPages(BuildContext context) {
+  return Container(
+    width: MediaQuery.of(context).size.width,
+    child: Row(
+      children: [
+        CardSection(
+          name: 'Perawatan',
+          imageUrl: "assets/product/kategori4.jpg",
+        ),
+        CardSection(
+          name: 'Buku',
+          imageUrl: "assets/product/kategori5.jpg",
+        ),
+        CardSection(
+          name: 'Laptop',
+          imageUrl: "assets/product/kategori6.jpg",
+        ),
+      ],
+    ),
+  );
+}

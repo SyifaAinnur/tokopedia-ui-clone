@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tokopedia_ui/home/widget/custom_topBar.dart';
 import 'package:tokopedia_ui/home/widget/deals.dart';
 import 'package:tokopedia_ui/home/widget/flash_sale.dart';
+import 'package:tokopedia_ui/home/widget/kategori.dart';
 import 'package:tokopedia_ui/home/widget/menu_button.dart';
 import 'package:tokopedia_ui/home/widget/menutbottom.dart';
 import 'package:tokopedia_ui/home/widget/buttonappbar.dart';
@@ -270,7 +271,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       SizedBox(height: 10),
                       dealsPage(),
                       SizedBox(height: 10),
-                      produkPilihan()
+                      produkPilihan(),
+                      SizedBox(height: 10),
+                      Kategori()
                     ]),
                   )
                 ],
