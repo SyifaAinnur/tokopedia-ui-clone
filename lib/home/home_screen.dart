@@ -13,6 +13,8 @@ import 'package:tokopedia_ui/home/widget/produkpilihan.dart';
 import 'package:tokopedia_ui/home/widget/slideritem.dart';
 import 'package:tokopedia_ui/home/widget/servicesIcon.dart';
 import 'package:tokopedia_ui/home/widget/special_promo.dart';
+import 'package:tokopedia_ui/home/widget/today.dart';
+import 'package:tokopedia_ui/home/widget/trending.dart';
 import 'package:tokopedia_ui/models/location_services.dart';
 import 'package:tokopedia_ui/theme.dart';
 import 'package:curved_animation_controller/curved_animation_controller.dart';
@@ -154,18 +156,23 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ),
               ),
             ),
-            SizedBox(width: 13),
-            IconButton(
-              icon: Icon(Icons.favorite, color: _animationIcon.value),
-              onPressed: () {},
-            ),
+           
             IconButton(
               icon: Icon(Icons.mail, color: _animationIcon.value),
               onPressed: () {},
             ),
             IconButton(
+              icon: Icon(Icons.notifications, color: _animationIcon.value),
+              onPressed: () {},
+            ),
+            IconButton(
               icon:
-                  Icon(Icons.notifications_active, color: _animationIcon.value),
+                  Icon(Icons.shopping_cart, color: _animationIcon.value),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon:
+                  Icon(Icons.menu, color: _animationIcon.value),
               onPressed: () {},
             ),
           ],
@@ -267,13 +274,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       SizedBox(height: 10),
                       SpecialPromo(),
                       SizedBox(height: 10),
-                      FlashSale(),
+                      Today(),
                       SizedBox(height: 10),
                       dealsPage(),
                       SizedBox(height: 10),
                       produkPilihan(),
                       SizedBox(height: 10),
-                      Kategori()
+                      Kategori(),
+                      SizedBox(height: 10),
+                      trending()
                     ]),
                   )
                 ],
