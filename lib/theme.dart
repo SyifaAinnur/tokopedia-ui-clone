@@ -11,6 +11,10 @@ Color blackColor = Color(0xff000000);
 Color whiteColor = Color(0xffFFFFFF);
 Color greyColor = Color(0xff82868E);
 Color softpurpleColor = Color(0xff9FAEFB);
+Color mainColor = Color(0xFF05AA10);
+Color accentColor1 = Color(0xFF0077C5);
+Color accentColor2 = Color(0xFFE74E40);
+Color accentColor3 = Color(0xFF9FA6B0);
 
 TextStyle regularTextStyle = GoogleFonts.poppins(
   fontWeight: FontWeight.w400,
